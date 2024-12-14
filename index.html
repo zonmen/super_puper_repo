@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+    <title>My Telegram Web App</title>
+    <!-- Telegram Web App JavaScript -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #user-info {
+            margin-top: 20px;
+        }
+        #main-button {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Telegram Web App</h1>
+    <p>This is a simple web app running inside Telegram.</p>
+    <div id="user-info">Loading user info...</div>
+    <button id="main-button">Send Data to Bot</button>
+
+    <script>
+        // Initialize Telegram WebApp
+        const tg = window.Telegram.WebApp;
+        tg.ready(); // Notifies Telegram the web app is ready
+
+        // Get user data if available
+        const user = tg.initDataUnsafe?.user;
+        const userInfoDiv = document.getElementById('user-info');
+        if (user) {
+            userInfoDiv.textContent = `Hello, ${user.first_name}!`;
+        } else {
+            userInfoDiv.textContent = 'Hello, dear user!';
+        }
+
+        // Main Button Click Handler
+        const mainButton = document.getElementById('main-button');
+        mainButton.addEventListener('click', () => {
+            // Send some data back to the bot
+            tg.sendData("User clicked the button!");
+        });
+    </script>
+</body>
+</html>
