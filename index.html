@@ -3,67 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pupa Picture Bot</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        h1 {
-            color: #0088cc;
-        }
-        button {
-            background-color: #0088cc;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-        a {
-            text-decoration: none;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <title>Node.js + Vercel</title>
 </head>
 <body>
-    <h1>Welcome to Pupa Picture Bot</h1>
-    <p>Use this bot to manage and share pictures directly inside Telegram!</p>
-
-    <h2>Launch the Bot</h2>
-    <a href="https://t.me/pupa_picture_bot" target="_blank">
-        <button>Open @pupa_picture_bot</button>
-    </a>
-
-    <h2>Preview</h2>
-    <img src="./images/pupa_bot_preview.png" alt="Pupa Bot Preview" />
-
-    <h2>About the Bot</h2>
-    <p>
-        The <strong>@pupa_picture_bot</strong> helps you to upload, manage, and share your pictures seamlessly inside Telegram. 
-        It's simple to use and works across all your devices.
-    </p>
-    <p>Click the button above to start interacting with the bot!</p>
-
-    <h2>FAQs</h2>
-    <dl>
-        <dt>What is this bot?</dt>
-        <dd>Pupa Picture Bot is a Telegram bot that makes sharing and organizing images easy.</dd>
-        <dt>How do I use it?</dt>
-        <dd>Click the "Open @pupa_picture_bot" button, and the bot will guide you through its features.</dd>
-        <dt>Is it free?</dt>
-        <dd>Yes, it’s completely free to use!</dd>
-    </dl>
-
-    <footer>
-        <p>Check out the <a href="https://github.com/zonmen/super_puper_repo" target="_blank">GitHub Repository</a> for the source code and more details.</p>
-        <p>Learn more about <a href="https://core.telegram.org/bots/webapps" target="_blank">Telegram Web Apps</a>.</p>
-    </footer>
+    <h1>Hello from Frontend!</h1>
+    <p id="message">Loading message from the backend...</p>
+    <script>
+        // Fetch message from the backend API
+        fetch('/api/hello')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').textContent = data.message;
+            })
+            .catch(err => {
+                document.getElementById('message').textContent = 'Error loading message.';
+                console.error(err);
+            });
+    </script>
 </body>
 </html>
