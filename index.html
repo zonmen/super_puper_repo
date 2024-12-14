@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-    <title>My Telegram Web App</title>
-    <!-- Telegram Web App JavaScript -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pupa Picture Bot</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
         }
-        #user-info {
-            margin-top: 20px;
+        h1 {
+            color: #0088cc;
         }
-        #main-button {
-            margin-top: 20px;
-            font-size: 18px;
+        button {
+            background-color: #0088cc;
+            color: white;
             padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Telegram Web App</h1>
-    <p>This is a simple web app running inside Telegram.</p>
-    <div id="user-info">Loading user info...</div>
-    <button id="main-button">Send Data to Bot</button>
+    <h1>Welcome to Pupa Picture Bot</h1>
+    <p>Use this bot to manage and share pictures directly inside Telegram!</p>
 
-    <script>
-        // Initialize Telegram WebApp
-        const tg = window.Telegram.WebApp;
-        tg.ready(); // Notifies Telegram the web app is ready
+    <h2>Launch the Bot</h2>
+    <a href="https://t.me/pupa_picture_bot" target="_blank">
+        <button>Open @pupa_picture_bot</button>
+    </a>
 
-        // Get user data if available
-        const user = tg.initDataUnsafe?.user;
-        const userInfoDiv = document.getElementById('user-info');
-        if (user) {
-            userInfoDiv.textContent = `Hello, ${user.first_name}!`;
-        } else {
-            userInfoDiv.textContent = 'Hello, dear user!';
-        }
+    <h2>Preview</h2>
+    <img src="./images/pupa_bot_preview.png" alt="Pupa Bot Preview" />
 
-        // Main Button Click Handler
-        const mainButton = document.getElementById('main-button');
-        mainButton.addEventListener('click', () => {
-            // Send some data back to the bot
-            tg.sendData("User clicked the button!");
-        });
-    </script>
+    <h2>About the Bot</h2>
+    <p>
+        The <strong>@pupa_picture_bot</strong> helps you to upload, manage, and share your pictures seamlessly inside Telegram. 
+        It's simple to use and works across all your devices.
+    </p>
+    <p>Click the button above to start interacting with the bot!</p>
+
+    <h2>FAQs</h2>
+    <dl>
+        <dt>What is this bot?</dt>
+        <dd>Pupa Picture Bot is a Telegram bot that makes sharing and organizing images easy.</dd>
+        <dt>How do I use it?</dt>
+        <dd>Click the "Open @pupa_picture_bot" button, and the bot will guide you through its features.</dd>
+        <dt>Is it free?</dt>
+        <dd>Yes, it’s completely free to use!</dd>
+    </dl>
+
+    <footer>
+        <p>Check out the <a href="https://github.com/zonmen/super_puper_repo" target="_blank">GitHub Repository</a> for the source code and more details.</p>
+        <p>Learn more about <a href="https://core.telegram.org/bots/webapps" target="_blank">Telegram Web Apps</a>.</p>
+    </footer>
 </body>
 </html>
